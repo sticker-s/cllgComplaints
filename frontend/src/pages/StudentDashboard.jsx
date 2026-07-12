@@ -85,7 +85,7 @@ export default function StudentDashboard() {
 
       {/* Complaints Section */}
       <div className="section-header">
-        <h3 className="section-title">My Complaints </h3>
+        <h3 className="section-title">My Complaints</h3>
         <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>{complaints.length} total</span>
       </div>
 

@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext'
 import { getStatusBadge, getPriorityBadge, getPriorityColor, timeAgo } from '../utils/helpers'
 
 const CATEGORIES = ['all', 'Wi-Fi', 'Hostel', 'Maintenance', 'Canteen', 'Infrastructure', 'Library', 'Transport', 'Academic', 'Other']
-const STATUSES   = ['all', 'pending', 'in-progress', 'resolved', 'rejected']
+const STATUSES = ['all', 'pending', 'in-progress', 'resolved', 'rejected']
 const PRIORITIES = ['all', 'low', 'medium', 'high', 'urgent']
 
 export default function StudentDashboard() {
@@ -85,7 +85,7 @@ export default function StudentDashboard() {
 
       {/* Complaints Section */}
       <div className="section-header">
-        <h3 className="section-title">My Complaints</h3>
+        <h3 className="section-title">My Complaints </h3>
         <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>{complaints.length} total</span>
       </div>
 

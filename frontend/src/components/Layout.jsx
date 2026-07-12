@@ -78,7 +78,7 @@ export default function Layout({ children }) {
         {/* Brand */}
         <NavLink to={isAdmin ? '/admin' : '/dashboard'} className="navbar-brand">
           <div className="navbar-brand-icon">🎓</div>
-          <span className="navbar-brand-name">CampusVoice</span>
+          <span className="navbar-brand-name">collegeComplaints</span>
         </NavLink>
 
         {/* Nav Links */}

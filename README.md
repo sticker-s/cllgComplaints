@@ -1,4 +1,4 @@
-﻿# CampusVoice — Smart Campus Complaint Management System
+﻿# collegeComplaints — Smart Campus Complaint Management System
 
 A web app where students can submit campus complaints (Wi-Fi, hostel, maintenance, etc.) and admins can track, assign, and resolve them in real-time.
 

@@ -36,7 +36,7 @@ export default function Login() {
       <div className="auth-left">
         <div className="auth-logo">
           <div className="auth-logo-icon">🎓</div>
-          <span className="auth-logo-text">CampusVoice</span>
+          <span className="auth-logo-text">collegeComplaints</span>
         </div>
         <div className="auth-hero">
           <h1>Your Campus,<br /><span>Your Voice.</span></h1>

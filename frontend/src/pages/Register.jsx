@@ -42,10 +42,10 @@ export default function Register() {
       <div className="auth-left">
         <div className="auth-logo">
           <div className="auth-logo-icon">🎓</div>
-          <span className="auth-logo-text">CampusVoice</span>
+          <span className="auth-logo-text">collegeComplaints</span>
         </div>
         <div className="auth-hero">
-          <h1>Join <span>CampusVoice</span></h1>
+          <h1>Join <span>collegeComplaints</span></h1>
           <p>Register as a student to start submitting and tracking your campus complaints instantly.</p>
         </div>
         <div className="auth-features">

@@ -19,7 +19,7 @@ app.use('/api/admin', require('./routes/admin'))
 
 // Health check
 app.get('/api/health', (req, res) =>
-  res.json({ status: 'ok', message: 'CampusVoice API running', db: 'MongoDB' })
+  res.json({ status: 'ok', message: 'collegeComplaints API running', db: 'MongoDB' })
 )
 
 app.use((req, res) => res.status(404).json({ message: 'Route not found' }))
@@ -30,5 +30,5 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(PORT, () =>
-  console.log(`✅ CampusVoice server running on http://localhost:${PORT}`)
+  console.log(`✅ collegeComplaints server running on http://localhost:${PORT}`)
 )

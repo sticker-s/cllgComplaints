@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useTheme } from '../context/ThemeContext'
 import { toast } from 'react-toastify'
 
 function AvatarDropdown({ user, onLogout }) {
@@ -61,6 +62,7 @@ function AvatarDropdown({ user, onLogout }) {
 
 export default function Layout({ children }) {
   const { user, logout } = useAuth()
+  const { theme, toggleTheme } = useTheme()
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -112,6 +114,14 @@ export default function Layout({ children }) {
 
         {/* Right side */}
         <div className="navbar-right">
+          <button 
+            onClick={toggleTheme} 
+            className="btn btn-icon btn-ghost" 
+            style={{ color: 'white', border: 'none', background: 'transparent' }}
+            title="Toggle Theme"
+          >
+            {theme === 'light' ? '🌙' : '☀️'}
+          </button>
           <AvatarDropdown user={user} onLogout={handleLogout} />
         </div>
       </nav>

@@ -84,27 +84,13 @@ export default function Layout({ children }) {
         {/* Nav Links */}
         <div className="navbar-nav">
           {isAdmin ? (
-            <>
-              <NavLink
-                to="/admin"
-                end
-                className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-              >
-                📊 Dashboard
-              </NavLink>
-              <NavLink
-                to="/admin?tab=complaints"
-                className={({ isActive }) => `nav-link`}
-                onClick={e => {
-                  e.preventDefault()
-                  navigate('/admin')
-                  // small delay to let page mount, then switch tab via query
-                  setTimeout(() => window.dispatchEvent(new CustomEvent('switch-tab', { detail: 'complaints' })), 50)
-                }}
-              >
-                📋 All Complaints
-              </NavLink>
-            </>
+            <NavLink
+              to="/admin"
+              end
+              className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
+            >
+              📊 Dashboard
+            </NavLink>
           ) : (
             <>
               <NavLink

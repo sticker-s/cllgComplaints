@@ -1,0 +1,93 @@
+/* ── LOGIN ANIMATION STYLES ── */
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: blobFloat 10s infinite alternate ease-in-out;
+}
+.blob-1 {
+  width: 400px;
+  height: 400px;
+  background: #3b82f6; /* Blue */
+  top: -100px;
+  left: -100px;
+}
+.blob-2 {
+  width: 300px;
+  height: 300px;
+  background: #fecc02; /* Campus Yellow */
+  bottom: -50px;
+  right: -50px;
+  animation-delay: -5s;
+}
+
+@keyframes blobFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(50px, 50px) scale(1.1); }
+}
+
+.cards-wrapper {
+  position: absolute;
+  inset: 0;
+  perspective: 1000px; /* Required for 3D tilt effect */
+}
+
+.floating-card {
+  position: absolute;
+  width: 220px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation: floatBob 6s infinite ease-in-out;
+  transition: transform 0.15s ease-out; /* Smooths the mouse parallax */
+  will-change: transform;
+}
+
+@keyframes floatBob {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -20px; }
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-skeleton-title {
+  height: 12px;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.card-skeleton-line {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+@keyframes hintFade {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.65; }
+}

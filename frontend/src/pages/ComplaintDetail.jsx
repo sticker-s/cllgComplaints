@@ -6,10 +6,10 @@ import { getStatusBadge, getPriorityBadge, formatDateTime, timeAgo } from '../ut
 import { toast } from 'react-toastify'
 
 const STATUS_OPTIONS = [
-  { value: 'pending',     label: 'Pending',     dot: 'pending' },
+  { value: 'pending', label: 'Pending', dot: 'pending' },
   { value: 'in-progress', label: 'In Progress', dot: 'in-progress' },
-  { value: 'resolved',    label: 'Resolved',    dot: 'resolved' },
-  { value: 'rejected',    label: 'Rejected',    dot: 'rejected' },
+  { value: 'resolved', label: 'Resolved', dot: 'resolved' },
+  { value: 'rejected', label: 'Rejected', dot: 'rejected' },
 ]
 
 export default function ComplaintDetail() {
@@ -96,10 +96,8 @@ export default function ComplaintDetail() {
       <button className="back-btn" onClick={() => navigate(-1)}>← Back</button>
 
       <div className="detail-grid">
-        {/* ── LEFT: Main Content ── */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
 
-          {/* Complaint Card */}
           <div className="card">
             <div className="card-header">
               <span className="card-title">🎫 Complaint #{cid.toString().slice(-8).toUpperCase()}</span>
@@ -159,15 +157,18 @@ export default function ComplaintDetail() {
                 <>
                   <div className="info-label" style={{ marginBottom: 8 }}>Attached Photos</div>
                   <div className="complaint-images">
-                    {complaint.images.map((img, i) => (
-                      <img
-                        key={i}
-                        src={`http://localhost:5000${img}`}
-                        alt={`attachment ${i + 1}`}
-                        className="complaint-image"
-                        onClick={() => setLightboxImg(`http://localhost:5000${img}`)}
-                      />
-                    ))}
+                    {complaint.images.map((img, i) => {
+                      const baseUrl = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/\/api\/?$/, '') : 'http://localhost:5000';
+                      return (
+                        <img
+                          key={i}
+                          src={`${baseUrl}${img}`}
+                          alt={`attachment ${i + 1}`}
+                          className="complaint-image"
+                          onClick={() => setLightboxImg(`${baseUrl}${img}`)}
+                        />
+                      );
+                    })}
                   </div>
                 </>
               )}
@@ -321,19 +322,19 @@ export default function ComplaintDetail() {
               ) : (
                 <div style={{ textAlign: 'center', padding: '12px 0' }}>
                   <div style={{ fontSize: '2.8rem', marginBottom: 10 }}>
-                    {complaint.status === 'pending'     && '⏳'}
+                    {complaint.status === 'pending' && '⏳'}
                     {complaint.status === 'in-progress' && '🔄'}
-                    {complaint.status === 'resolved'    && '✅'}
-                    {complaint.status === 'rejected'    && '❌'}
+                    {complaint.status === 'resolved' && '✅'}
+                    {complaint.status === 'rejected' && '❌'}
                   </div>
                   <span className={`badge ${status.cls}`} style={{ fontSize: '0.85rem', padding: '5px 14px' }}>
                     {status.label}
                   </span>
                   <p style={{ marginTop: 12, fontSize: '0.83rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                    {complaint.status === 'pending'     && 'Your complaint is waiting to be reviewed by the admin team.'}
+                    {complaint.status === 'pending' && 'Your complaint is waiting to be reviewed by the admin team.'}
                     {complaint.status === 'in-progress' && 'The admin team is actively working on your complaint.'}
-                    {complaint.status === 'resolved'    && 'Your complaint has been successfully resolved.'}
-                    {complaint.status === 'rejected'    && 'Your complaint was rejected. Please contact the admin directly.'}
+                    {complaint.status === 'resolved' && 'Your complaint has been successfully resolved.'}
+                    {complaint.status === 'rejected' && 'Your complaint was rejected. Please contact the admin directly.'}
                   </p>
                   {complaint.assignedToName && (
                     <>
@@ -374,7 +375,6 @@ export default function ComplaintDetail() {
         </div>
       </div>
 
-      {/* Lightbox */}
       {lightboxImg && (
         <div className="modal-overlay" onClick={() => setLightboxImg(null)}>
           <img
@@ -385,7 +385,6 @@ export default function ComplaintDetail() {
         </div>
       )}
 
-      {/* Delete Modal */}
       {deleteModal && (
         <div className="modal-overlay">
           <div className="modal">
